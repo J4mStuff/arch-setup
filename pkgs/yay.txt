@@ -1,4 +1,7 @@
+beautysh
+calibre-plugin-dedrm
+js-beautify
 osu-lazer-bin
-protonvpn
 tumbler-extra-thumbnailers
 unigine-superposition
+zsh-antidote
