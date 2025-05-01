@@ -1,8 +1,0 @@
-nvim
-alacritty 0.13.1-1
-audacity 1:3.4.2-3
-btop 1.3.2-1
-discord 0.0.43-1
-ffmpeg 2:6.1.1-6
-filezilla 3.66.5-1
-git 2.44.0-1

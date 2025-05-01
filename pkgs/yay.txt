@@ -1,0 +1,4 @@
+osu-lazer-bin
+protonvpn
+tumbler-extra-thumbnailers
+unigine-superposition

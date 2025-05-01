@@ -1,4 +1,0 @@
-oh-my-posh
-input-wacom-dkms
-osu-lazer
-
