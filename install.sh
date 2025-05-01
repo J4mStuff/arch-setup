@@ -12,17 +12,6 @@ sudo pacman -S --noconfirm --needed reflector git archinstall stow
 sudo reflector -a 48 -c Netherlands -f 10 > /etc/pacman.d/mirrorlist
 
 #-------------------------------------------------------------------------
-#               Plymouth theme
-#-------------------------------------------------------------------------
-
-THEME_DIR="/usr/share/plymouth/themes/"
-THEME_NAME=abstract_ring
-
-sudo cp -r configs${THEME_DIR} ${THEME_DIR}
-sudo plymouth-set-default-theme -R {THEME_NAME}
-
-
-#-------------------------------------------------------------------------
 #               Grub Boot Menu
 #-------------------------------------------------------------------------
 
