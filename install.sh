@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Checking if is running in Repo Folder
 if [[ ! "$(basename "$(pwd)" | tr '[:upper:]' '[:lower:]')" =~ ^arch-setup$ ]]; then
@@ -9,7 +9,7 @@ fi
 sudo pacman -S --noconfirm archlinux-keyring plymouth
 sudo sed -i 's/^#\{0,1\}ParallelDownloads.*$/ParallelDownloads = 20/' /etc/pacman.conf
 sudo pacman -S --noconfirm --needed reflector git archinstall stow
-sudo reflector -a 48 -c Netherlands -f 10 > /etc/pacman.d/mirrorlist
+sudo reflector -a 48 -c Netherlands -f 10 | sudo tee /etc/pacman.d/mirrorlist
 
 #-------------------------------------------------------------------------
 #               Grub Boot Menu
@@ -22,10 +22,10 @@ THEME_DIR="/boot/grub/themes"
 THEME_NAME=CyberRe
 
 sudo mkdir -p ${THEME_DIR}
-sudo cp -r configs${THEME_DIR}* {THEME_DIR}/
+sudo cp -r configs${THEME_DIR}* ${THEME_DIR}/
 sudo cp -an /etc/default/grub /etc/default/grub.bak
-sudo grep "GRUB_THEME=" /etc/default/grub 2>&1 >/dev/null && sed -i '/GRUB_THEME=/d' /etc/default/grub
-sudo echo "GRUB_THEME=\"${THEME_DIR}/${THEME_NAME}/theme.txt\"" >> /etc/default/grub
+sudo grep "GRUB_THEME=" /etc/default/grub && sed -i '/GRUB_THEME=/d' /etc/default/grub
+sudo echo "GRUB_THEME=\"${THEME_DIR}/${THEME_NAME}/theme.txt\"" | suto tee -a /etc/default/grub
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 
@@ -44,10 +44,10 @@ sudo cp -r config/etc/* /etc/
 #-------------------------------------------------------------------------
 
 yayPackages=$(sed -E 's/ /, /gm;t' <<< cat 'pkgs/yay.txt')
-yay -S ${yayPackages}
+yay -S "${yayPackages}"
 
 pacmanPackages=$(sed -E 's/ /, /gm;t' <<< cat 'pkgs/pacman.txt')
-sudo pacman -S ${pacmanPackages}
+sudo pacman -S "${pacmanPackages}"
 
 
 #-------------------------------------------------------------------------
