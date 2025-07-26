@@ -1,8 +1,16 @@
+#!/usr/bin/bash
 
-YAY='pkgs/yay.txt'
-PCMN='pkgs/pacman.txt'
+paru='pkgs/paru.txt'
+pacman='pkgs/pacman.txt'
 
-sudo pacman -Qem | awk '{print $1}' > ${YAY}
-sudo pacman -Qen | awk '{print $1}' > ${PCMN};
+#paru_pkgs=($(sudo paru -Qem | awk '{print $1}'))
+mapfile -t paru_pkgs < <(sudo paru -Qem | awk '{print $1}')
+mapfile -t pacman_pkgs < <(sudo pacman -Qen | awk '{print $1}')
 
-#join -v1 -v2 <(sort ${PCMN}) <(sort ${YAY}) > ${PCMN}
+printf '%s\n' "${paru_pkgs[@]}"
+printf '%s\n' "${paru_pkgs[@]}" > $paru
+
+printf "\n\n\n"
+
+printf '%s\n' "${pacman_pkgs[@]}"
+printf '%s\n' "${pacman_pkgs[@]}" > $pacman

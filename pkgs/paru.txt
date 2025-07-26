@@ -1,7 +1,10 @@
 beautysh
 calibre-plugin-dedrm
+glibc-debug
+grimshot
 js-beautify
 osu-lazer-bin
+rider
 tumbler-extra-thumbnailers
 unigine-superposition
 zsh-antidote
