@@ -1,0 +1,4 @@
+app.zen_browser.zen
+com.bambulab.BambuStudio
+com.github.tchx84.Flatseal
+dev.goats.xivlauncher
